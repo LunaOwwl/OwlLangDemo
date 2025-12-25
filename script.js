@@ -15,6 +15,13 @@ function loadLanguage(lang) {
       elements.question.textContent = data.question;
       elements.yesBtn.textContent = data.yes;
       elements.noBtn.textContent = data.no;
+
+      // page direction handling
+      if (lang === "ar") {
+        document.body.setAttribute("dir", "rtl");
+      } else {
+        document.body.setAttribute("dir", "ltr");
+      }
     })
     .catch(err => console.error("Error loading language file:", err));
 }
@@ -22,10 +29,11 @@ function loadLanguage(lang) {
 // default language
 loadLanguage("en");
 
-// add listeners for language buttons
-document.querySelectorAll(".language-button").forEach(button => {
-  button.addEventListener("click", () => {
-    const lang = button.getAttribute("data-lang");
-    loadLanguage(lang);
-  });
+// dropdown language change
+const languageSelect = document.getElementById("languageSelect");
+
+languageSelect.addEventListener("change", () => {
+  loadLanguage(languageSelect.value);
 });
+
+languageSelect.value = "en";
