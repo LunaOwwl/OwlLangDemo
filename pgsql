@@ -5,8 +5,12 @@ white-owl-demo/
 ├── images /
     └── serious_owl.jpg
 └── locales/
-    ├── en.json
-    ├── fr.json
-    ├── ko.json
-    ├── ja.json
-    └── ar.json
+      ├── en.json
+      ├── fr.json
+      ├── ko.json
+      ├── ja.json
+      ├── ar.json
+      ├── de.json
+      ├── el.json
+      ├── nl.json
+      └── uk.json
