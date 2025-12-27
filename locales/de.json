@@ -2,6 +2,7 @@
   "title": "Weiße Eule",
   "description": "Eine weiße Eule ist ein prächtiges Wesen.",
   "question": "Magst du Eulen?",
+  "language": "Sprache:",
   "yes": "Ja",
   "no": "Nein"
 }

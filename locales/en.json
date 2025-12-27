@@ -2,6 +2,7 @@
   "title": "White Owl",
   "description": "A white owl is a magnificent creature.",
   "question": "Do you like owls?",
+  "language": "Language:",
   "yes": "Yes",
   "no": "No"
 }

@@ -2,6 +2,7 @@
   "title": "Hibou Blanc",
   "description": "Un hibou blanc est une créature magnifique.",
   "question": "Aimez-vous les hiboux ?",
+  "language": "Langue:",
   "yes": "Oui",
   "no": "Non"
 }
