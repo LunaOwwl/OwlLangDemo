@@ -4,5 +4,7 @@
   "question": "Do you like owls?",
   "language": "Language:",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "yesAlert": "🦉 Great! Owls are wonderful!",
+  "noAlert": "🦉 That's okay, everyone has their preferences!"
 }

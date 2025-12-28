@@ -4,5 +4,7 @@
   "question": "Magst du Eulen?",
   "language": "Sprache:",
   "yes": "Ja",
-  "no": "Nein"
+  "no": "Nein",
+  "yesAlert": "🦉 Großartig! Eulen sind wunderbar!",
+  "noAlert": "🦉 Das ist in Ordnung, jeder hat seine Vorlieben!"
 }

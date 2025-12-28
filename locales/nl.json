@@ -4,5 +4,7 @@
   "question": "Hou je van uilen?",
   "language": "Taal:",
   "yes": "Ja",
-  "no": "Nee"
+  "no": "Nee",
+  "yesAlert": "🦉 Geweldig! Uilen zijn prachtig!",
+  "noAlert": "🦉 Dat is oké, iedereen heeft zijn voorkeuren!"
 }

@@ -1,39 +1,45 @@
-const elements = {
-  title: document.getElementById("title"),
-  description: document.getElementById("description"),
-  question: document.getElementById("question"),
-  yesBtn: document.getElementById("yesBtn"),
-  noBtn: document.getElementById("noBtn"),
-};
+// Store current translations globally
+let currentTranslations = {};
 
-function loadLanguage(lang) {
-  fetch(`./locales/${lang}.json`)
-    .then(response => response.json())
-    .then(data => {
-      elements.title.textContent = data.title;
-      elements.description.textContent = data.description;
-      elements.question.textContent = data.question;
-      elements.yesBtn.textContent = data.yes;
-      elements.noBtn.textContent = data.no;
-
-      // page direction handling
-      if (lang === "ar") {
-        document.body.setAttribute("dir", "rtl");
-      } else {
-        document.body.setAttribute("dir", "ltr");
-      }
-    })
-    .catch(err => console.error("Error loading language file:", err));
+// Load translations
+async function loadTranslations(lang) {
+  const response = await fetch(`./locales/${lang}.json`);
+  return await response.json();
 }
 
-// default language
-loadLanguage("en");
+// Update page content
+function updateContent(translations) {
+  currentTranslations = translations;
+  
+  document.getElementById('title').textContent = translations.title;
+  document.getElementById('description').textContent = translations.description;
+  document.getElementById('question').textContent = translations.question;
+  document.getElementById('yesBtn').textContent = translations.yes;
+  document.getElementById('noBtn').textContent = translations.no;
+  
+  // Update the language label
+  document.querySelector('label[for="languageSelect"]').innerHTML = `<strong>${translations.language}</strong>`;
+}
 
-// dropdown language change
-const languageSelect = document.getElementById("languageSelect");
-
-languageSelect.addEventListener("change", () => {
-  loadLanguage(languageSelect.value);
+// Handle language change
+document.getElementById('languageSelect').addEventListener('change', async (e) => {
+  const selectedLang = e.target.value;
+  const translations = await loadTranslations(selectedLang);
+  updateContent(translations);
 });
 
-languageSelect.value = "en";
+// Load default language on page load
+window.addEventListener('DOMContentLoaded', async () => {
+  const defaultLang = document.getElementById('languageSelect').value;
+  const translations = await loadTranslations(defaultLang);
+  updateContent(translations);
+});
+
+// Handle button clicks with localized messages
+document.getElementById('yesBtn').addEventListener('click', () => {
+  alert(currentTranslations.yesAlert);
+});
+
+document.getElementById('noBtn').addEventListener('click', () => {
+  alert(currentTranslations.noAlert);
+});
